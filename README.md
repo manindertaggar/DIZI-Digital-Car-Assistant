@@ -18,7 +18,7 @@ Welcome to Dizi - Your Car's Smart Dashboard App! Dizi is a revolutionary applic
 
 ### Support
 
-If you encounter any issues or have any questions about Dizi, please don't hesitate to reach out to us. You can contact us via GitHub issues or by emailing support@diziapp.com.
+If you encounter any issues or have any questions about Dizi, please don't hesitate to reach out to us. You can contact us via GitHub issues or DM me on Twitter.
 
 ### License
 
