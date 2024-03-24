@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">Car Assistant Dizi</string>
+    <string name="app_name">Car Assistant DIZI</string>
+    <string name="label_notification_reader_service">Car Assistant : DIZI</string>
+    <string name="message_notification_access">Notification access is required to control players, maps navigation, messages and more. Please find Dizi app on next screen and allow the permissions.</string>
+    <string name="notification_access">Notification access</string>
 </resources>
