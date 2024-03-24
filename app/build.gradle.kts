@@ -21,8 +21,7 @@ android {
 
         val properties = Properties()
         properties.load(project.rootProject.file("local.properties").inputStream())
-        val mapsApiKey = properties.getProperty("GOOGLE_MAPS_KEY") ?: ""
-        buildConfigField(type = "String", name = "GOOGLE_MAPS_KEY", value = mapsApiKey)
+        manifestPlaceholders["GOOGLE_MAPS_KEY"] = properties.getProperty("GOOGLE_MAPS_KEY") ?: ""
     }
 
     buildTypes {
@@ -43,6 +42,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     composeOptions {
