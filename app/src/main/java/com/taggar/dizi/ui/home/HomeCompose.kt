@@ -24,6 +24,7 @@ import com.google.maps.android.compose.GoogleMap
 import com.google.maps.android.compose.rememberCameraPositionState
 import com.taggar.dizi.ui.Route
 import com.taggar.dizi.ui.navigate
+import com.taggar.dizi.ui.shared.MusicPlayerCompose
 
 @Composable
 fun Home(
@@ -50,16 +51,8 @@ fun Home(
                 }
                 GoogleMap(cameraPositionState = cameraPositionState) {}
             }
-            Row(
-                modifier = Modifier
-                    .padding(30.dp)
-                    .clip(shape = RoundedCornerShape(20.dp)),
-                horizontalArrangement = Arrangement.SpaceAround
-            ) {
-                Button(onClick = { navController.navigate(Route.PermissionNotificationReader) }) {
-                    Text("Allow Notifications")
-                }
-            }
+
+            state.lastMusicStatus?.let { MusicPlayerCompose(it) }
         }
     }
 }

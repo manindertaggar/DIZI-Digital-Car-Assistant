@@ -5,6 +5,7 @@ import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import android.util.Log
 import com.taggar.dizi.models.MusicStatus
+import com.taggar.dizi.repository.MusicStatusUpdatePersistence
 import com.taggar.dizi.repository.NotificationRepository
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -15,6 +16,9 @@ class NotificationListenerService : NotificationListenerService() {
 
     @Inject
     lateinit var notificationRepository: NotificationRepository
+
+    @Inject
+    lateinit var musicStatusUpdatePersistence: MusicStatusUpdatePersistence
 
     override fun onCreate() {
         super.onCreate()
@@ -47,6 +51,7 @@ class NotificationListenerService : NotificationListenerService() {
         )
         Log.d(TAG, "Found Music: $status")
         notificationRepository.updateMusicStatus(status = status)
+        musicStatusUpdatePersistence.update(status = status.toSimple())
     }
 
     override fun onNotificationRemoved(sbn: StatusBarNotification) {

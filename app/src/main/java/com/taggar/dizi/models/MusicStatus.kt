@@ -9,4 +9,11 @@ data class MusicStatus(
     val icon: Icon,
     val title: String,
     val packageName: String
+) {
+    fun toSimple() = MusicStatusSimple(isPlaying, packageName)
+}
+
+data class MusicStatusSimple(
+    val isPlaying: Boolean,
+    val packageName: String
 )

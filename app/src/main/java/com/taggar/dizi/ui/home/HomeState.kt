@@ -1,9 +1,7 @@
 package com.taggar.dizi.ui.home
 
-data class HomeState(
-    val music: MusicStatus = MusicStatus(isPlaying = false)
-)
+import com.taggar.dizi.models.MusicStatusSimple
 
-data class MusicStatus(
-    val isPlaying: Boolean
+data class HomeState(
+    val lastMusicStatus: MusicStatusSimple? = null
 )
