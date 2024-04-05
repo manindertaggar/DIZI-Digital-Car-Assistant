@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.taggar.dizi.ui.Route
 import com.taggar.dizi.ui.Route.Home
 import com.taggar.dizi.ui.Route.PermissionNotificationReader
 import com.taggar.dizi.ui.home.Home

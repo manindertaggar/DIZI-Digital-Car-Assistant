@@ -1,8 +1,8 @@
 package com.taggar.dizi.ui.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.taggar.dizi.repository.MusicStatusUpdatePersistence
 import com.taggar.dizi.repository.NotificationRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,20 +12,16 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val musicStatusUpdatePersistence: MusicStatusUpdatePersistence,
     private val notificationRepository: NotificationRepository
 ) : ViewModel() {
+    private val TAG = HomeViewModel::class.simpleName
     val state = MutableStateFlow(HomeState())
 
     init {
         viewModelScope.launch {
-            musicStatusUpdatePersistence.listen().collect { status ->
-                state.value = state.value.copy(lastMusicStatus = status)
+            notificationRepository.getMusicStatus().collect {
+                Log.d(TAG, "getMusicStatus: $it")
             }
         }
-    }
-
-    fun getMusicStatusByPackage(packageName: String) {
-        notificationRepository.getMusicStatus().find { packageName == it.packageName }
     }
 }

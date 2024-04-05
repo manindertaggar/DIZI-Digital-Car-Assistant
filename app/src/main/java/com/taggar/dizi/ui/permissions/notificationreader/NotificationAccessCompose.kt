@@ -29,7 +29,6 @@ import androidx.navigation.NavHostController
 import com.taggar.dizi.R
 import com.taggar.dizi.base.openNotificationListenerPermissions
 import com.taggar.dizi.ui.shared.PrimaryButton
-import com.taggar.dizi.ui.shared.SecondaryButton
 
 @Composable
 fun NotificationReader(

@@ -4,6 +4,8 @@ import android.content.Context
 import android.util.Log
 import com.taggar.dizi.models.MusicStatus
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.channelFlow
 import javax.inject.Inject
 
 
@@ -18,8 +20,8 @@ class NotificationRepositoryImpl @Inject constructor(
         musicStatus[status.packageName] = status
     }
 
-    override fun getMusicStatus(): List<MusicStatus> {
+    override fun getMusicStatus(): Flow<List<MusicStatus>> = channelFlow {
         Log.d(TAG, "getMusicStatus")
-        return musicStatus.values.sortedBy { it.isPlaying }
+        musicStatus.values.sortedBy { it.isPlaying }
     }
 }
